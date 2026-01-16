@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>২০২৬ সালের মাধ্যমিক স্কুল সাটিফিকেট পরীক্ষার সময়সূচি ও গণনা</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Arial', 'Noto Sans Bengali', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #1a73e8;
+            --primary-dark: #0d47a1;
+            --primary-light: #e8f0fe;
+            --secondary-color: #34a853;
+            --danger-color: #ea4335;
+            --warning-color: #fbbc04;
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --text-light: #80868b;
+            --background-light: #f8fafc;
+            --white: #ffffff;
+            --border-color: #dadce0;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.12);
+            --gradient-primary: linear-gradient(135deg, #1a73e8, #0d47a1);
+            --gradient-secondary: linear-gradient(135deg, #34a853, #0d7c43);
+        }
+        
+        body {
+            background-color: var(--background-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 0;
+            direction: ltr;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 40px 0;
+            box-shadow: 0 4px 20px var(--shadow-medium);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0.1;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.2) 0%, transparent 20%),
+                              radial-gradient(circle at 90% 80%, rgba(255,255,255,0.15) 0%, transparent 20%);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 25px;
+            font-weight: 400;
+            max-width: 800px;
+        }
+        
+        .current-date-container {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .current-date-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .exam-time-info {
+            background-color: var(--primary-light);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-left: 6px solid var(--primary-color);
+            box-shadow: 0 4px 15px var(--shadow-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .exam-time-info p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+        
+        .exam-time-info i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .exam-start-time {
+            background-color: var(--white);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(26, 115, 232, 0.15);
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        /* Controls Styles */
+        .controls {
+            padding: 25px;
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .controls-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .controls-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .total-exams-badge {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .filter-input-container, .sort-select-container {
+            position: relative;
+            flex-grow: 1;
+            min-width: 250px;
+        }
+        
+        .filter-input, .sort-select {
+            width: 100%;
+            padding: 14px 20px 14px 50px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background-color: var(--white);
+        }
+        
+        .filter-input:focus, .sort-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+        }
+        
+        .filter-icon, .sort-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+        
+        .reset-btn {
+            background-color: var(--text-secondary);
+            color: var(--white);
+            border: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .reset-btn:hover {
+            background-color: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-medium);
+        }
+        
+        /* Table Styles */
+        .exam-schedule {
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px var(--shadow-light);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        thead {
+            background-color: #f1f5f9;
+        }
+        
+        th {
+            padding: 22px 20px;
+            text-align: left;
+            font-weight: 700;
+            color: var(--text-primary);
+            border-bottom: 3px solid var(--border-color);
+            font-size: 1.05rem;
+        }
+        
+        td {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+        
+        tr {
+            transition: background-color 0.2s;
+        }
+        
+        tr:hover {
+            background-color: #f8fafc;
+        }
+        
+        .subject-cell {
+            min-width: 280px;
+        }
+        
+        .subject-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .subject-code {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .exam-date-cell {
+            min-width: 180px;
+        }
+        
+        .exam-date {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .exam-day {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .countdown-cell {
+            min-width: 280px;
+        }
+        
+        .countdown {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .countdown-box {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .time-unit {
+            background-color: #f8fafc;
+            border-radius: 10px;
+            padding: 12px 10px;
+            text-align: center;
+            min-width: 70px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+        
+        .time-value {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        
+        .time-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .exam-status {
+            font-weight: 700;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+        }
+        
+        .status-upcoming {
+            background-color: #e8f0fe;
+            color: var(--primary-color);
+        }
+        
+        .status-ongoing {
+            background-color: #fce8e6;
+            color: var(--danger-color);
+        }
+        
+        .status-completed {
+            background-color: #e6f4ea;
+            color: var(--secondary-color);
+        }
+        
+        /* Summary Styles */
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .summary-item {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--shadow-light);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid var(--primary-color);
+        }
+        
+        .summary-item:nth-child(2) {
+            border-top-color: var(--warning-color);
+        }
+        
+        .summary-item:nth-child(3) {
+            border-top-color: var(--danger-color);
+        }
+        
+        .summary-item:nth-child(4) {
+            border-top-color: var(--secondary-color);
+        }
+        
+        .summary-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-medium);
+        }
+        
+        .summary-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .summary-item:nth-child(2) .summary-icon {
+            color: var(--warning-color);
+        }
+        
+        .summary-item:nth-child(3) .summary-icon {
+            color: var(--danger-color);
+        }
+        
+        .summary-item:nth-child(4) .summary-icon {
+            color: var(--secondary-color);
+        }
+        
+        .summary-value {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        
+        .summary-label {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 50px 0 30px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0.05;
+            background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.3) 0%, transparent 25%),
+                              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 0%, transparent 25%);
+        }
+        
+        .footer-info {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .footer-info p {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 40px 0;
+        }
+        
+        .footer-credits {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-top: 25px;
+        }
+        
+        .copyright {
+            font-size: 1rem;
+            opacity: 0.85;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .love-heart {
+            color: #ff4757;
+            animation: heartbeat 1.5s infinite;
+            font-size: 1.2rem;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .developer-credit {
+            font-size: 1rem;
+            opacity: 0.85;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .developer-name {
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .developer-name:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-link:hover {
+            opacity: 1;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .summary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-credits {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            header {
+                padding: 30px 0;
+                margin-bottom: 30px;
+            }
+            
+            h1 {
+                font-size: 1.9rem;
+            }
+            
+            .exam-time-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .controls {
+                padding: 20px;
+            }
+            
+            .controls-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .filter-input-container, .sort-select-container {
+                min-width: 100%;
+            }
+            
+            th, td {
+                padding: 15px 12px;
+                font-size: 0.95rem;
+            }
+            
+            .time-unit {
+                min-width: 60px;
+                padding: 10px 8px;
+            }
+            
+            .time-value {
+                font-size: 1.4rem;
+            }
+            
+            .summary {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .summary-item {
+                padding: 25px 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .current-date-container {
+                padding: 10px 20px;
+                font-size: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .current-date-icon {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            
+            .exam-start-time {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+            
+            th {
+                font-size: 0.9rem;
+                padding: 12px 10px;
+            }
+            
+            td {
+                padding: 12px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .subject-name {
+                font-size: 1rem;
+            }
+            
+            .exam-date {
+                font-size: 1.1rem;
+            }
+            
+            .countdown-box {
+                gap: 8px;
+            }
+            
+            .time-unit {
+                min-width: 55px;
+                padding: 8px 6px;
+            }
+            
+            .time-value {
+                font-size: 1.3rem;
+            }
+            
+            .time-label {
+                font-size: 0.75rem;
+            }
+        }
+        
+        @media print {
+            .controls, .footer, .exam-time-info, .summary {
+                display: none;
+            }
+            
+            .exam-schedule {
+                box-shadow: none;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: var(--white);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-pattern"></div>
+        <div class="container header-content">
+            <h1>২০২৬ সালের মাধ্যমিক স্কুল সাটিফিকেট পরীক্ষার সময়সূচি</h1>
+            <p class="subtitle">পরীক্ষার সময়সূচি এবং প্রতিটি পরীক্ষার জন্য বাস্তব সময় গণনা</p>
+            <div class="current-date-container">
+                <i class="fas fa-clock current-date-icon"></i>
+                <span id="currentDateTime">বর্তমান তারিখ ও সময়: লোড হচ্ছে...</span>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="exam-time-info">
+            <div>
+                <p><i class="fas fa-info-circle"></i> বিশেষ প্রয়োজনে বোর্ড কর্তৃপক্ষ এ সময়সূচি পরিবর্তন করতে পারবেন।</p>
+                <p><i class="fas fa-sync-alt"></i> এই পৃষ্ঠাটি স্বয়ংক্রিয়ভাবে আপডেট হয় এবং প্রতিটি পরীক্ষার জন্য গণনা প্রদর্শন করে।</p>
+            </div>
+            <div class="exam-start-time">
+                <i class="fas fa-hourglass-start"></i> পরীক্ষা শুরু সময়: সকাল ১০:০০টা
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="controls-header">
+                <div class="controls-title">পরীক্ষার সময়সূচি</div>
+                <div class="total-exams-badge">মোট পরীক্ষা: <span id="totalExamsCount">0</span></div>
+            </div>
+            
+            <div class="filter-input-container">
+                <i class="fas fa-search filter-icon"></i>
+                <input type="text" class="filter-input" id="subjectFilter" placeholder="বিষয় বা কোড অনুসন্ধান করুন...">
+            </div>
+            
+            <div class="sort-select-container">
+                <i class="fas fa-sort-amount-down sort-icon"></i>
+                <select class="sort-select" id="sortSelect">
+                    <option value="date-asc">তারিখ অনুযায়ী (আগে থেকে পরে)</option>
+                    <option value="date-desc">তারিখ অনুযায়ী (পরে থেকে আগে)</option>
+                    <option value="subject">বিষয় অনুযায়ী (ক-হ)</option>
+                    <option value="code">কোড অনুযায়ী</option>
+                </select>
+            </div>
+            
+            <button class="reset-btn" id="resetBtn">
+                <i class="fas fa-redo-alt"></i> ফিল্টার রিসেট করুন
+            </button>
+        </div>
+        
+        <div class="exam-schedule">
+            <table id="examTable">
+                <thead>
+                    <tr>
+                        <th width="35%">বিষয়</th>
+                        <th width="15%">কোড</th>
+                        <th width="20%">তারিখ ও দিন</th>
+                        <th width="30%">গণনা</th>
+                    </tr>
+                </thead>
+                <tbody id="examTableBody">
+                    <!-- Exam data will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="summary">
+            <div class="summary-item">
+                <i class="fas fa-clipboard-list summary-icon"></i>
+                <div class="summary-value" id="totalExams">0</div>
+                <div class="summary-label">মোট পরীক্ষা</div>
+            </div>
+            <div class="summary-item">
+                <i class="fas fa-calendar-alt summary-icon"></i>
+                <div class="summary-value" id="upcomingExams">0</div>
+                <div class="summary-label">আসন্ন পরীক্ষা</div>
+            </div>
+            <div class="summary-item">
+                <i class="fas fa-running summary-icon"></i>
+                <div class="summary-value" id="ongoingExams">0</div>
+                <div class="summary-label">চলমান পরীক্ষা</div>
+            </div>
+            <div class="summary-item">
+                <i class="fas fa-check-circle summary-icon"></i>
+                <div class="summary-value" id="completedExams">0</div>
+                <div class="summary-label">সম্পন্ন পরীক্ষা</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-pattern"></div>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <p>মার্ক নং- আশিরেবা/প্রশা/২০১০/০৮ তারিখ: ১৫/০১/২০২৬ বিদ.</p>
+                <p>এই সময়সূচি বোর্ড কর্তৃপক্ষ দ্বারা প্রকাশিত হয়েছে। সর্বশেষ আপডেট: ১৫ জানুয়ারি, ২০২৬</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link"><i class="fas fa-question-circle"></i> সহায়তা</a>
+                <a href="#" class="footer-link"><i class="fas fa-exclamation-circle"></i> নির্দেশাবলী</a>
+                <a href="#" class="footer-link"><i class="fas fa-download"></i> সময়সূচি ডাউনলোড</a>
+                <a href="#" class="footer-link"><i class="fas fa-print"></i> প্রিন্ট করুন</a>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-credits">
+                <div class="copyright">
+                    <i class="far fa-copyright"></i>
+                    <span id="currentYear">2026</span> মাধ্যমিক শিক্ষা বোর্ড। সকল অধিকার সংরক্ষিত।
+                </div>
+                
+                <div class="developer-credit">
+                    <span>তৈরি করা হয়েছে</span>
+                    <span class="love-heart"><i class="fas fa-heart"></i></span>
+                    <span>দ্বারা</span>
+                    <a href="#" class="developer-name">রাফিস</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Exam data extracted from the PDF
+        const examData = [
+            { subject: "বাংলা (আবশ্যিক)-১ম পত্র", code: "১০১", date: "2026-04-21", day: "মঙ্গলবার" },
+            { subject: "সহজ বাংলা-১ম পত্র", code: "১০৩", date: "2026-04-21", day: "মঙ্গলবার" },
+            { subject: "বাংলা (আবশ্যিক)-২য় পত্র", code: "১০২", date: "2026-04-23", day: "বৃহস্পতিবার" },
+            { subject: "সহজ বাংলা-২য় পত্র", code: "১০৪", date: "2026-04-23", day: "বৃহস্পতিবার" },
+            { subject: "ইংরেজি (আবশ্যিক)-১ম পত্র", code: "১০৭", date: "2026-04-26", day: "রবিবার" },
+            { subject: "ইংরেজি (আবশ্যিক)-২য় পত্র", code: "১০৮", date: "2026-04-28", day: "মঙ্গলবার" },
+            { subject: "তথ্য ও যোগাযোগ প্রযুক্তি", code: "১৫৪", date: "2026-04-30", day: "বৃহস্পতিবার" },
+            { subject: "গণিত (আবশ্যিক)", code: "১০৯", date: "2026-05-03", day: "রবিবার" },
+            { subject: "বাংলাদেশ ও বিশ্ব পরিচয়", code: "১৫০", date: "2026-05-05", day: "মঙ্গলবার" },
+            { subject: "ইসলাম ও নৈতিক শিক্ষা/ইসলাম শিক্ষা", code: "১১১", date: "2026-05-07", day: "বৃহস্পতিবার" },
+            { subject: "হিন্দুধর্ম ও নৈতিক শিক্ষা/হিন্দুধর্ম শিক্ষা", code: "১১২", date: "2026-05-07", day: "বৃহস্পতিবার" },
+            { subject: "বৌদ্ধধর্ম ও নৈতিক শিক্ষা/বৌদ্ধধর্ম শিক্ষা", code: "১১৩", date: "2026-05-07", day: "বৃহস্পতিবার" },
+            { subject: "খ্রিস্টধর্ম ও নৈতিক শিক্ষা/খ্রিস্টধর্ম শিক্ষা", code: "১১৪", date: "2026-05-07", day: "বৃহস্পতিবার" },
+            { subject: "পদার্থবিজ্ঞান (তত্ত্বীয়)", code: "১৩৬", date: "2026-05-10", day: "রবিবার" },
+            { subject: "বাংলাদেশের ইতিহাস ও বিশ্বসভ্যতা", code: "১৫৩", date: "2026-05-10", day: "রবিবার" },
+            { subject: "বিজ্ঞাপন ও ব্যাংকিং", code: "১৫২", date: "2026-05-10", day: "রবিবার" },
+            { subject: "ভূগোল ও পরিবেশ", code: "১১০", date: "2026-05-11", day: "সোমবার" },
+            { subject: "গার্হস্থ্যবিজ্ঞান (তত্ত্বীয়)", code: "১৫১", date: "2026-05-12", day: "মঙ্গলবার" },
+            { subject: "কৃষিশিক্ষা (তত্ত্বীয়)", code: "১৩৪", date: "2026-05-12", day: "মঙ্গলবার" },
+            { subject: "সঙ্গীত (তত্ত্বীয়)", code: "১৪৯", date: "2026-05-12", day: "মঙ্গলবার" },
+            { subject: "আরবি", code: "১২১", date: "2026-05-12", day: "মঙ্গলবার" },
+            { subject: "সংস্কৃত", code: "১২৩", date: "2026-05-12", day: "মঙ্গলবার" },
+            { subject: "পালি", code: "১২৪", date: "2026-05-12", day: "মঙ্গলবার" },
+            { subject: "শারীরিক শিক্ষা ও স্বাস্থ্য (তত্ত্বীয়)", code: "১৩৩", date: "2026-05-12", day: "মঙ্গলবার" },
+            { subject: "চারু ও কারুকলা (তত্ত্বীয়)", code: "১৪৮", date: "2026-05-12", day: "মঙ্গলবার" },
+            { subject: "হিসাববিজ্ঞান", code: "১৪৬", date: "2026-05-13", day: "বৃহস্পতিবার" },
+            { subject: "রসায়ন (তত্ত্বীয়)", code: "১৩৭", date: "2026-05-14", day: "বৃহস্পতিবার" },
+            { subject: "পৌরনীতি ও নাগরিকতা", code: "১৪০", date: "2026-05-14", day: "বৃহস্পতিবার" },
+            { subject: "ব্যবসায় উদ্যোগ", code: "১৪৩", date: "2026-05-14", day: "বৃহস্পতিবার" },
+            { subject: "উচ্চতর গণিত (তত্ত্বীয়)", code: "১২৬", date: "2026-05-17", day: "রবিবার" },
+            { subject: "বিজ্ঞান", code: "১২৭", date: "2026-05-17", day: "রবিবার" },
+            { subject: "জীববিজ্ঞান (তত্ত্বীয়)", code: "১৩৮", date: "2026-05-20", day: "বৃহস্পতিবার" },
+            { subject: "অর্থনীতি", code: "১৪১", date: "2026-05-20", day: "বৃহস্পতিবার" }
+        ];
+
+        // DOM elements
+        const examTableBody = document.getElementById('examTableBody');
+        const currentDateTimeElement = document.getElementById('currentDateTime');
+        const subjectFilter = document.getElementById('subjectFilter');
+        const sortSelect = document.getElementById('sortSelect');
+        const resetBtn = document.getElementById('resetBtn');
+        const currentYearElement = document.getElementById('currentYear');
+        const totalExamsCountElement = document.getElementById('totalExamsCount');
+        
+        // Summary elements
+        const totalExamsElement = document.getElementById('totalExams');
+        const upcomingExamsElement = document.getElementById('upcomingExams');
+        const ongoingExamsElement = document.getElementById('ongoingExams');
+        const completedExamsElement = document.getElementById('completedExams');
+        
+        // Exam start time (10:00 AM)
+        const EXAM_START_HOUR = 10;
+        
+        // Initialize the app
+        function init() {
+            // Set current year in footer
+            currentYearElement.textContent = new Date().getFullYear();
+            
+            updateCurrentDateTime();
+            renderExamTable();
+            setupEventListeners();
+            
+            // Update current time every second
+            setInterval(updateCurrentDateTime, 1000);
+            
+            // Update countdowns every second
+            setInterval(updateAllCountdowns, 1000);
+        }
+        
+        // Update current date and time display
+        function updateCurrentDateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                hour12: true
+            };
+            
+            // Format date in Bengali (using English for simplicity, but can be translated)
+            const dateTimeStr = now.toLocaleDateString('bn-BD', options);
+            currentDateTimeElement.textContent = `বর্তমান তারিখ ও সময়: ${dateTimeStr}`;
+        }
+        
+        // Calculate time remaining until exam
+        function calculateTimeRemaining(examDate) {
+            const now = new Date();
+            const examDateTime = new Date(examDate);
+            
+            // Set exam time to 10:00 AM
+            examDateTime.setHours(EXAM_START_HOUR, 0, 0, 0);
+            
+            // Calculate time difference in milliseconds
+            const timeDiff = examDateTime.getTime() - now.getTime();
+            
+            if (timeDiff <= 0) {
+                // Exam has started or passed
+                const examEndTime = new Date(examDateTime);
+                examEndTime.setHours(examDateTime.getHours() + 3); // Assuming 3-hour exams
+                
+                if (now.getTime() < examEndTime.getTime()) {
+                    return { status: 'ongoing', days: 0, hours: 0, minutes: 0, seconds: 0 };
+                } else {
+                    return { status: 'completed', days: 0, hours: 0, minutes: 0, seconds: 0 };
+                }
+            } else {
+                // Exam is upcoming
+                const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+                
+                return { status: 'upcoming', days, hours, minutes, seconds };
+            }
+        }
+        
+        // Format countdown display
+        function formatCountdown(countdown) {
+            if (countdown.status === 'ongoing') {
+                return '<span class="exam-status status-ongoing"><i class="fas fa-running"></i> পরীক্ষা চলছে</span>';
+            } else if (countdown.status === 'completed') {
+                return '<span class="exam-status status-completed"><i class="fas fa-check-circle"></i> পরীক্ষা সম্পন্ন</span>';
+            } else {
+                return `
+                    <div class="countdown">
+                        <div class="countdown-box">
+                            <div class="time-unit">
+                                <div class="time-value">${countdown.days}</div>
+                                <div class="time-label">দিন</div>
+                            </div>
+                            <div class="time-unit">
+                                <div class="time-value">${countdown.hours}</div>
+                                <div class="time-label">ঘন্টা</div>
+                            </div>
+                            <div class="time-unit">
+                                <div class="time-value">${countdown.minutes}</div>
+                                <div class="time-label">মিনিট</div>
+                            </div>
+                            <div class="time-unit">
+                                <div class="time-value">${countdown.seconds}</div>
+                                <div class="time-label">সেকেন্ড</div>
+                            </div>
+                        </div>
+                        <span class="exam-status status-upcoming"><i class="fas fa-calendar-alt"></i> আসন্ন</span>
+                    </div>
+                `;
+            }
+        }
+        
+        // Render exam table with current data
+        function renderExamTable(filteredData = examData) {
+            examTableBody.innerHTML = '';
+            
+            let upcomingCount = 0;
+            let ongoingCount = 0;
+            let completedCount = 0;
+            
+            filteredData.forEach(exam => {
+                const countdown = calculateTimeRemaining(exam.date);
+                
+                if (countdown.status === 'upcoming') upcomingCount++;
+                else if (countdown.status === 'ongoing') ongoingCount++;
+                else if (countdown.status === 'completed') completedCount++;
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="subject-cell">
+                        <div class="subject-name">${exam.subject}</div>
+                        <div class="subject-code"><i class="fas fa-hashtag"></i> কোড: ${exam.code}</div>
+                    </td>
+                    <td>${exam.code}</td>
+                    <td class="exam-date-cell">
+                        <div class="exam-date">${formatDateForDisplay(exam.date)}</div>
+                        <div class="exam-day"><i class="far fa-calendar-alt"></i> ${exam.day}</div>
+                    </td>
+                    <td class="countdown-cell">
+                        ${formatCountdown(countdown)}
+                    </td>
+                `;
+                
+                examTableBody.appendChild(row);
+            });
+            
+            // Update summary counts
+            const totalCount = filteredData.length;
+            totalExamsElement.textContent = totalCount;
+            totalExamsCountElement.textContent = totalCount;
+            upcomingExamsElement.textContent = upcomingCount;
+            ongoingExamsElement.textContent = ongoingCount;
+            completedExamsElement.textContent = completedCount;
+        }
+        
+        // Update all countdowns in the table
+        function updateAllCountdowns() {
+            const rows = examTableBody.querySelectorAll('tr');
+            
+            let upcomingCount = 0;
+            let ongoingCount = 0;
+            let completedCount = 0;
+            
+            rows.forEach((row, index) => {
+                const exam = examData[index];
+                if (!exam) return;
+                
+                const countdown = calculateTimeRemaining(exam.date);
+                const countdownCell = row.querySelector('.countdown-cell');
+                
+                if (countdownCell) {
+                    countdownCell.innerHTML = formatCountdown(countdown);
+                }
+                
+                if (countdown.status === 'upcoming') upcomingCount++;
+                else if (countdown.status === 'ongoing') ongoingCount++;
+                else if (countdown.status === 'completed') completedCount++;
+            });
+            
+            // Update summary counts
+            upcomingExamsElement.textContent = upcomingCount;
+            ongoingExamsElement.textContent = ongoingCount;
+            completedExamsElement.textContent = completedCount;
+        }
+        
+        // Format date for display
+        function formatDateForDisplay(dateStr) {
+            const date = new Date(dateStr);
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
+        
+        // Filter and sort exams
+        function filterAndSortExams() {
+            const filterText = subjectFilter.value.toLowerCase();
+            const sortValue = sortSelect.value;
+            
+            let filtered = examData.filter(exam => 
+                exam.subject.toLowerCase().includes(filterText) || 
+                exam.code.includes(filterText)
+            );
+            
+            // Sort exams
+            filtered.sort((a, b) => {
+                if (sortValue === 'date-asc') {
+                    return new Date(a.date) - new Date(b.date);
+                } else if (sortValue === 'date-desc') {
+                    return new Date(b.date) - new Date(a.date);
+                } else if (sortValue === 'subject') {
+                    return a.subject.localeCompare(b.subject);
+                } else if (sortValue === 'code') {
+                    return a.code.localeCompare(b.code);
+                }
+                return 0;
+            });
+            
+            renderExamTable(filtered);
+        }
+        
+        // Setup event listeners
+        function setupEventListeners() {
+            subjectFilter.addEventListener('input', filterAndSortExams);
+            sortSelect.addEventListener('change', filterAndSortExams);
+            resetBtn.addEventListener('click', () => {
+                subjectFilter.value = '';
+                sortSelect.value = 'date-asc';
+                renderExamTable();
+            });
+        }
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+  </html>

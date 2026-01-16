@@ -607,29 +607,6 @@
             margin: clamp(1rem, 3vw, 2rem) 0;
         }
 
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: clamp(0.75rem, 2vw, 1.5rem);
-            margin-bottom: clamp(1rem, 3vw, 2rem);
-        }
-
-        .footer-link {
-            color: white;
-            text-decoration: none;
-            font-size: clamp(0.875rem, 2vw, 1rem);
-            opacity: 0.85;
-            transition: opacity 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.375rem;
-        }
-
-        .footer-link:hover {
-            opacity: 1;
-        }
-
         .footer-credits {
             display: flex;
             flex-direction: column;
@@ -711,17 +688,6 @@
             .controls > *:not(.controls-header) {
                 grid-column: 1 / -1;
             }
-            
-            /* Fix table cell widths for mobile */
-            .subject-cell, .exam-date-cell, .countdown-cell {
-                min-width: auto;
-                max-width: none;
-            }
-            
-            /* Adjust countdown for very small screens */
-            .countdown {
-                min-height: 60px;
-            }
         }
 
         /* Tablet optimizations */
@@ -733,16 +699,6 @@
             .reset-btn {
                 grid-column: 1 / -1;
             }
-            
-            /* Adjust table for tablets */
-            table {
-                min-width: 500px;
-            }
-            
-            .countdown-box {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 0.375rem;
-            }
         }
 
         /* Large screen optimizations */
@@ -753,23 +709,6 @@
 
             .summary {
                 grid-template-columns: repeat(4, 1fr);
-            }
-            
-            /* Adjust countdown for large screens */
-            .countdown-box {
-                gap: 0.5rem;
-            }
-            
-            .time-unit {
-                padding: 0.6rem 0.4rem;
-            }
-            
-            .time-value {
-                font-size: 1.5rem;
-            }
-            
-            .time-label {
-                font-size: 0.8rem;
             }
         }
 
@@ -805,11 +744,6 @@
             h1 {
                 color: black !important;
                 font-size: 16pt !important;
-            }
-            
-            .countdown-box {
-                display: flex !important;
-                gap: 0.5rem !important;
             }
         }
 
@@ -956,10 +890,10 @@
             <table id="examTable">
                 <thead>
                     <tr>
-                        <th width="35%" class="subject-cell">বিষয়</th>
+                        <th width="35%">বিষয়</th>
                         <th width="15%">কোড</th>
-                        <th width="20%" class="exam-date-cell">তারিখ ও দিন</th>
-                        <th width="30%" class="countdown-cell">গণনা</th>
+                        <th width="20%">তারিখ ও দিন</th>
+                        <th width="30%">গণনা</th>
                     </tr>
                 </thead>
                 <tbody id="examTableBody">
@@ -1000,26 +934,19 @@
                 <p>এই সময়সূচি বোর্ড কর্তৃপক্ষ দ্বারা প্রকাশিত হয়েছে। সর্বশেষ আপডেট: ১৫ জানুয়ারি, ২০২৬</p>
             </div>
             
-            <div class="footer-links">
-                <a href="#" class="footer-link"><i class="fas fa-question-circle"></i> সহায়তা</a>
-                <a href="#" class="footer-link"><i class="fas fa-exclamation-circle"></i> নির্দেশাবলী</a>
-                <a href="#" class="footer-link"><i class="fas fa-download"></i> সময়সূচি ডাউনলোড</a>
-                <a href="#" class="footer-link"><i class="fas fa-print"></i> প্রিন্ট করুন</a>
-            </div>
-            
             <div class="footer-divider"></div>
             
             <div class="footer-credits">
                 <div class="copyright">
                     <i class="far fa-copyright"></i>
-                    <span id="currentYear">2026</span> মাধ্যমিক শিক্ষা বোর্ড। সকল অধিকার সংরক্ষিত।
+                    <span id="currentYear">2026</span> Secondary Education Board. All Rights Reserved.
                 </div>
                 
                 <div class="developer-credit">
-                    <span>তৈরি করা হয়েছে</span>
+                    <span>Made with</span>
                     <span class="love-heart"><i class="fas fa-heart"></i></span>
-                    <span>দ্বারা</span>
-                    <a href="#" class="developer-name">রাফিস</a>
+                    <span>by</span>
+                    <a href="#" class="developer-name">Rafis</a>
                 </div>
             </div>
         </div>
@@ -1095,36 +1022,6 @@
             
             // Update countdowns every second
             setInterval(updateAllCountdowns, 1000);
-            
-            // Check screen size and adjust table view
-            window.addEventListener('resize', adjustTableForScreenSize);
-            adjustTableForScreenSize();
-        }
-        
-        // Adjust table view based on screen size
-        function adjustTableForScreenSize() {
-            const screenWidth = window.innerWidth;
-            const tableContainer = document.querySelector('.table-container');
-            
-            if (screenWidth < 480) {
-                // For very small screens, add data labels for mobile view
-                addDataLabelsToTable();
-            }
-        }
-        
-        // Add data labels for mobile view
-        function addDataLabelsToTable() {
-            const rows = examTableBody.querySelectorAll('tr');
-            
-            rows.forEach((row, index) => {
-                const cells = row.querySelectorAll('td');
-                if (cells.length >= 4) {
-                    cells[0].setAttribute('data-label', 'বিষয়');
-                    cells[1].setAttribute('data-label', 'কোড');
-                    cells[2].setAttribute('data-label', 'তারিখ ও দিন');
-                    cells[3].setAttribute('data-label', 'গণনা');
-                }
-            });
         }
         
         // Update current date and time display
@@ -1178,48 +1075,31 @@
             }
         }
         
-        // Format countdown display with responsive adjustments
+        // Format countdown display
         function formatCountdown(countdown) {
             if (countdown.status === 'ongoing') {
                 return '<span class="exam-status status-ongoing"><i class="fas fa-running"></i> পরীক্ষা চলছে</span>';
             } else if (countdown.status === 'completed') {
                 return '<span class="exam-status status-completed"><i class="fas fa-check-circle"></i> পরীক্ষা সম্পন্ন</span>';
             } else {
-                // Check screen width for responsive countdown
-                const screenWidth = window.innerWidth;
-                let gridColumns = "repeat(4, 1fr)";
-                let timeUnitPadding = "0.4rem 0.3rem";
-                let timeValueSize = "clamp(0.9rem, 2.5vw, 1.3rem)";
-                let timeLabelSize = "clamp(0.55rem, 1.2vw, 0.7rem)";
-                
-                if (screenWidth < 640) {
-                    gridColumns = "repeat(2, 1fr)";
-                    timeUnitPadding = "0.35rem 0.25rem";
-                }
-                
-                if (screenWidth < 480) {
-                    timeValueSize = "clamp(0.8rem, 2.5vw, 1.1rem)";
-                    timeLabelSize = "clamp(0.5rem, 1.3vw, 0.6rem)";
-                }
-                
                 return `
                     <div class="countdown">
-                        <div class="countdown-box" style="grid-template-columns: ${gridColumns};">
-                            <div class="time-unit" style="padding: ${timeUnitPadding};">
-                                <div class="time-value" style="font-size: ${timeValueSize};">${countdown.days}</div>
-                                <div class="time-label" style="font-size: ${timeLabelSize};">দিন</div>
+                        <div class="countdown-box">
+                            <div class="time-unit">
+                                <div class="time-value">${countdown.days}</div>
+                                <div class="time-label">দিন</div>
                             </div>
-                            <div class="time-unit" style="padding: ${timeUnitPadding};">
-                                <div class="time-value" style="font-size: ${timeValueSize};">${countdown.hours}</div>
-                                <div class="time-label" style="font-size: ${timeLabelSize};">ঘন্টা</div>
+                            <div class="time-unit">
+                                <div class="time-value">${countdown.hours}</div>
+                                <div class="time-label">ঘন্টা</div>
                             </div>
-                            <div class="time-unit" style="padding: ${timeUnitPadding};">
-                                <div class="time-value" style="font-size: ${timeValueSize};">${countdown.minutes}</div>
-                                <div class="time-label" style="font-size: ${timeLabelSize};">মিনিট</div>
+                            <div class="time-unit">
+                                <div class="time-value">${countdown.minutes}</div>
+                                <div class="time-label">মিনিট</div>
                             </div>
-                            <div class="time-unit" style="padding: ${timeUnitPadding};">
-                                <div class="time-value" style="font-size: ${timeValueSize};">${countdown.seconds}</div>
-                                <div class="time-label" style="font-size: ${timeLabelSize};">সেকেন্ড</div>
+                            <div class="time-unit">
+                                <div class="time-value">${countdown.seconds}</div>
+                                <div class="time-label">সেকেন্ড</div>
                             </div>
                         </div>
                         <span class="exam-status status-upcoming"><i class="fas fa-calendar-alt"></i> আসন্ন</span>
@@ -1245,12 +1125,12 @@
                 
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td class="subject-cell">
+                    <td>
                         <div class="subject-name">${exam.subject}</div>
                         <div class="subject-code"><i class="fas fa-hashtag"></i> কোড: ${exam.code}</div>
                     </td>
                     <td>${exam.code}</td>
-                    <td class="exam-date-cell">
+                    <td>
                         <div class="exam-date">${formatDateForDisplay(exam.date)}</div>
                         <div class="exam-day"><i class="far fa-calendar-alt"></i> ${exam.day}</div>
                     </td>
@@ -1269,11 +1149,6 @@
             upcomingExamsElement.textContent = upcomingCount;
             ongoingExamsElement.textContent = ongoingCount;
             completedExamsElement.textContent = completedCount;
-            
-            // Add data labels for mobile view if needed
-            if (window.innerWidth < 480) {
-                addDataLabelsToTable();
-            }
         }
         
         // Update all countdowns in the table

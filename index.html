@@ -2,735 +2,739 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>২০২৬ সালের মাধ্যমিক স্কুল সাটিফিকেট পরীক্ষার সময়সূচি ও গণনা</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* CSS Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', 'Arial', 'Noto Sans Bengali', sans-serif;
         }
-        
-        :root {
-            --primary-color: #1a73e8;
-            --primary-dark: #0d47a1;
-            --primary-light: #e8f0fe;
-            --secondary-color: #34a853;
-            --danger-color: #ea4335;
-            --warning-color: #fbbc04;
-            --text-primary: #202124;
-            --text-secondary: #5f6368;
-            --text-light: #80868b;
-            --background-light: #f8fafc;
-            --white: #ffffff;
-            --border-color: #dadce0;
-            --shadow-light: rgba(0, 0, 0, 0.08);
-            --shadow-medium: rgba(0, 0, 0, 0.12);
-            --gradient-primary: linear-gradient(135deg, #1a73e8, #0d47a1);
-            --gradient-secondary: linear-gradient(135deg, #34a853, #0d7c43);
+
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
         }
-        
+
         body {
-            background-color: var(--background-light);
-            color: var(--text-primary);
-            line-height: 1.6;
-            padding: 0;
-            direction: ltr;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Noto Sans', sans-serif;
+            line-height: 1.5;
+            color: #202124;
+            background-color: #f8fafc;
+            overflow-x: hidden;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
-        
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 20px;
-            flex: 1;
+
+        /* Typography Scaling */
+        h1 {
+            font-size: clamp(1.75rem, 5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
         }
-        
-        /* Header Styles */
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            margin-bottom: 0.75rem;
+        }
+
+        /* Container System */
+        .container {
+            width: 100%;
+            padding-right: clamp(1rem, 4vw, 2rem);
+            padding-left: clamp(1rem, 4vw, 2rem);
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 1400px;
+        }
+
+        /* Header Styles - Responsive */
         header {
-            background: var(--gradient-primary);
-            color: var(--white);
-            padding: 40px 0;
-            box-shadow: 0 4px 20px var(--shadow-medium);
-            margin-bottom: 40px;
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            color: white;
+            padding: clamp(1.5rem, 5vw, 3rem) 0;
+            margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
             position: relative;
             overflow: hidden;
         }
-        
+
         .header-content {
             position: relative;
             z-index: 2;
+            text-align: center;
         }
-        
+
         .header-pattern {
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+            inset: 0;
             opacity: 0.1;
-            background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.2) 0%, transparent 20%),
-                              radial-gradient(circle at 90% 80%, rgba(255,255,255,0.15) 0%, transparent 20%);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.2) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.15) 0%, transparent 20%);
         }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            font-weight: 800;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
+
         .subtitle {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             opacity: 0.95;
-            margin-bottom: 25px;
-            font-weight: 400;
+            margin-bottom: 1.5rem;
             max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        
+
         .current-date-container {
             display: inline-flex;
             align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
             background-color: rgba(255, 255, 255, 0.15);
-            padding: 12px 25px;
+            padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem);
             border-radius: 50px;
-            font-size: 1.1rem;
-            margin-top: 15px;
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            margin-top: 1rem;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+            max-width: 600px;
         }
-        
-        .current-date-icon {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
+
+        /* Info Box */
         .exam-time-info {
-            background-color: var(--primary-light);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 40px;
-            border-left: 6px solid var(--primary-color);
-            box-shadow: 0 4px 15px var(--shadow-light);
+            background-color: #e8f0fe;
+            border-radius: clamp(0.75rem, 2vw, 1rem);
+            padding: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+            border-left: clamp(0.25rem, 1vw, 0.5rem) solid #1a73e8;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
+            flex-direction: column;
+            gap: 1rem;
         }
-        
-        .exam-time-info p {
-            margin: 0;
-            font-size: 1.1rem;
-            color: var(--text-primary);
+
+        @media (min-width: 768px) {
+            .exam-time-info {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
         }
-        
-        .exam-time-info i {
-            color: var(--primary-color);
-            margin-right: 10px;
-            font-size: 1.3rem;
-        }
-        
+
         .exam-start-time {
-            background-color: var(--white);
-            padding: 12px 25px;
+            background-color: white;
+            padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
             border-radius: 50px;
             font-weight: 700;
-            color: var(--primary-color);
+            color: #1a73e8;
             box-shadow: 0 4px 10px rgba(26, 115, 232, 0.15);
             display: inline-flex;
             align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+            font-size: clamp(0.875rem, 2vw, 1rem);
         }
-        
-        /* Controls Styles */
+
+        /* Controls Section */
         .controls {
-            padding: 25px;
-            background-color: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 4px 15px var(--shadow-light);
-            margin-bottom: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            align-items: center;
+            background-color: white;
+            border-radius: clamp(0.75rem, 2vw, 1rem);
+            padding: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: clamp(1rem, 3vw, 2rem);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(0.75rem, 2vw, 1rem);
         }
-        
+
+        @media (min-width: 768px) {
+            .controls {
+                grid-template-columns: 1fr 1fr;
+                align-items: end;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .controls {
+                grid-template-columns: 1fr 1fr auto;
+                align-items: center;
+            }
+        }
+
         .controls-header {
-            width: 100%;
+            grid-column: 1 / -1;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 0.75rem;
         }
-        
+
         .controls-title {
-            font-size: 1.4rem;
+            font-size: clamp(1.125rem, 3vw, 1.4rem);
             font-weight: 600;
-            color: var(--primary-color);
+            color: #1a73e8;
         }
-        
+
         .total-exams-badge {
-            background-color: var(--primary-light);
-            color: var(--primary-color);
-            padding: 6px 15px;
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            padding: 0.375rem 0.875rem;
             border-radius: 20px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
         }
-        
+
         .filter-input-container, .sort-select-container {
             position: relative;
-            flex-grow: 1;
-            min-width: 250px;
+            width: 100%;
         }
-        
+
         .filter-input, .sort-select {
             width: 100%;
-            padding: 14px 20px 14px 50px;
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s;
-            background-color: var(--white);
+            padding: clamp(0.75rem, 2vw, 0.875rem) clamp(0.75rem, 2vw, 1rem) clamp(0.75rem, 2vw, 0.875rem) clamp(2.5rem, 4vw, 3rem);
+            border: 2px solid #dadce0;
+            border-radius: clamp(0.5rem, 1.5vw, 0.75rem);
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            transition: all 0.3s ease;
+            background-color: white;
+            appearance: none;
+            -webkit-appearance: none;
         }
-        
+
         .filter-input:focus, .sort-select:focus {
             outline: none;
-            border-color: var(--primary-color);
+            border-color: #1a73e8;
             box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
         }
-        
+
         .filter-icon, .sort-icon {
             position: absolute;
-            left: 18px;
+            left: clamp(0.75rem, 2vw, 1rem);
             top: 50%;
             transform: translateY(-50%);
-            color: var(--text-light);
-            font-size: 1.2rem;
+            color: #5f6368;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            pointer-events: none;
         }
-        
+
         .reset-btn {
-            background-color: var(--text-secondary);
-            color: var(--white);
+            background-color: #5f6368;
+            color: white;
             border: none;
-            padding: 14px 28px;
-            border-radius: 12px;
+            padding: clamp(0.75rem, 2vw, 0.875rem) clamp(1rem, 3vw, 1.75rem);
+            border-radius: clamp(0.5rem, 1.5vw, 0.75rem);
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            width: 100%;
         }
-        
+
+        @media (min-width: 1024px) {
+            .reset-btn {
+                width: auto;
+                min-width: 180px;
+            }
+        }
+
         .reset-btn:hover {
-            background-color: var(--text-primary);
+            background-color: #3c4043;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px var(--shadow-medium);
         }
-        
-        /* Table Styles */
-        .exam-schedule {
-            background-color: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 5px 25px var(--shadow-light);
-            overflow: hidden;
-            margin-bottom: 40px;
+
+        /* Table Container */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+            border-radius: clamp(0.75rem, 2vw, 1rem);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            background: white;
         }
-        
+
+        /* Responsive Table */
         table {
             width: 100%;
+            min-width: 600px;
             border-collapse: collapse;
         }
-        
+
         thead {
             background-color: #f1f5f9;
         }
-        
+
         th {
-            padding: 22px 20px;
+            padding: clamp(0.75rem, 2vw, 1rem);
             text-align: left;
-            font-weight: 700;
-            color: var(--text-primary);
-            border-bottom: 3px solid var(--border-color);
-            font-size: 1.05rem;
+            font-weight: 600;
+            color: #202124;
+            border-bottom: 2px solid #dadce0;
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            white-space: nowrap;
         }
-        
+
         td {
-            padding: 20px;
-            border-bottom: 1px solid var(--border-color);
+            padding: clamp(0.75rem, 2vw, 1rem);
+            border-bottom: 1px solid #e0e0e0;
             vertical-align: top;
+            font-size: clamp(0.875rem, 2vw, 1rem);
         }
-        
+
         tr {
             transition: background-color 0.2s;
         }
-        
+
         tr:hover {
             background-color: #f8fafc;
         }
-        
-        .subject-cell {
-            min-width: 280px;
-        }
-        
+
+        /* Mobile-first table cell adjustments */
         .subject-name {
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 5px;
-            font-size: 1.1rem;
+            font-weight: 600;
+            color: #202124;
+            margin-bottom: 0.25rem;
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            word-break: break-word;
         }
-        
+
         .subject-code {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            display: inline-flex;
+            color: #5f6368;
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
+            display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 0.25rem;
         }
-        
-        .exam-date-cell {
-            min-width: 180px;
-        }
-        
+
         .exam-date {
-            font-weight: 700;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+            font-weight: 600;
+            color: #1a73e8;
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            margin-bottom: 0.25rem;
         }
-        
+
         .exam-day {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            display: inline-flex;
+            color: #5f6368;
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
+            display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.375rem;
         }
-        
+
+        /* Countdown - Fully Responsive */
         .countdown-cell {
-            min-width: 280px;
+            min-width: 250px;
         }
-        
+
         .countdown {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 0.5rem;
         }
-        
+
         .countdown-box {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.375rem;
+            width: 100%;
         }
-        
+
+        @media (max-width: 480px) {
+            .countdown-box {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         .time-unit {
             background-color: #f8fafc;
-            border-radius: 10px;
-            padding: 12px 10px;
+            border-radius: clamp(0.375rem, 1vw, 0.5rem);
+            padding: clamp(0.375rem, 1vw, 0.5rem);
             text-align: center;
-            min-width: 70px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border-color);
+            border: 1px solid #dadce0;
+            min-width: 0;
         }
-        
+
         .time-value {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--primary-color);
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 700;
+            color: #1a73e8;
             line-height: 1;
-            margin-bottom: 5px;
+            margin-bottom: 0.125rem;
         }
-        
+
         .time-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+            font-size: clamp(0.625rem, 1.5vw, 0.75rem);
+            color: #5f6368;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         .exam-status {
-            font-weight: 700;
-            padding: 8px 18px;
+            font-weight: 600;
+            padding: clamp(0.375rem, 1vw, 0.5rem) clamp(0.75rem, 2vw, 1rem);
             border-radius: 25px;
-            font-size: 0.95rem;
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.375rem;
             width: fit-content;
         }
-        
-        .status-upcoming {
-            background-color: #e8f0fe;
-            color: var(--primary-color);
-        }
-        
-        .status-ongoing {
-            background-color: #fce8e6;
-            color: var(--danger-color);
-        }
-        
-        .status-completed {
-            background-color: #e6f4ea;
-            color: var(--secondary-color);
-        }
-        
-        /* Summary Styles */
+
+        .status-upcoming { background-color: #e8f0fe; color: #1a73e8; }
+        .status-ongoing { background-color: #fce8e6; color: #ea4335; }
+        .status-completed { background-color: #e6f4ea; color: #34a853; }
+
+        /* Summary Section - Responsive Grid */
         .summary {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(0.75rem, 2vw, 1.25rem);
+            margin-bottom: clamp(2rem, 5vw, 3rem);
         }
-        
+
         .summary-item {
-            background-color: var(--white);
-            border-radius: 15px;
-            padding: 30px 25px;
+            background-color: white;
+            border-radius: clamp(0.75rem, 2vw, 1rem);
+            padding: clamp(1rem, 3vw, 1.5rem);
             text-align: center;
-            box-shadow: 0 5px 20px var(--shadow-light);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 5px solid var(--primary-color);
+            border-top: 4px solid #1a73e8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-        
-        .summary-item:nth-child(2) {
-            border-top-color: var(--warning-color);
-        }
-        
-        .summary-item:nth-child(3) {
-            border-top-color: var(--danger-color);
-        }
-        
-        .summary-item:nth-child(4) {
-            border-top-color: var(--secondary-color);
-        }
-        
+
         .summary-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px var(--shadow-medium);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
         }
-        
+
         .summary-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--primary-color);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 0.75rem;
+            color: #1a73e8;
         }
-        
-        .summary-item:nth-child(2) .summary-icon {
-            color: var(--warning-color);
-        }
-        
-        .summary-item:nth-child(3) .summary-icon {
-            color: var(--danger-color);
-        }
-        
-        .summary-item:nth-child(4) .summary-icon {
-            color: var(--secondary-color);
-        }
-        
+
         .summary-value {
-            font-size: 2.8rem;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 8px;
+            color: #202124;
+            margin-bottom: 0.25rem;
             line-height: 1;
         }
-        
+
         .summary-label {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
+            color: #5f6368;
+            font-size: clamp(0.875rem, 2vw, 1rem);
             font-weight: 500;
         }
-        
-        /* Footer Styles */
+
+        /* Footer - Responsive */
         footer {
-            background: var(--gradient-primary);
-            color: var(--white);
-            padding: 50px 0 30px;
-            margin-top: 60px;
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            color: white;
+            padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(1rem, 3vw, 2rem);
+            margin-top: auto;
             position: relative;
             overflow: hidden;
         }
-        
+
         .footer-content {
             position: relative;
             z-index: 2;
         }
-        
+
         .footer-pattern {
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+            inset: 0;
             opacity: 0.05;
-            background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.3) 0%, transparent 25%),
-                              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 0%, transparent 25%);
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.3) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 0%, transparent 25%);
         }
-        
+
         .footer-info {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
         }
-        
+
         .footer-info p {
-            margin-bottom: 10px;
-            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            font-size: clamp(0.875rem, 2vw, 1rem);
             opacity: 0.9;
         }
-        
+
         .footer-divider {
             height: 1px;
             background-color: rgba(255, 255, 255, 0.2);
-            margin: 40px 0;
+            margin: clamp(1rem, 3vw, 2rem) 0;
         }
-        
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: clamp(0.75rem, 2vw, 1.5rem);
+            margin-bottom: clamp(1rem, 3vw, 2rem);
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            opacity: 0.85;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+        }
+
         .footer-credits {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding-top: 25px;
+            flex-direction: column;
+            gap: clamp(0.75rem, 2vw, 1rem);
+            text-align: center;
+            padding-top: clamp(0.75rem, 2vw, 1.5rem);
         }
-        
-        .copyright {
-            font-size: 1rem;
+
+        @media (min-width: 768px) {
+            .footer-credits {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+            }
+        }
+
+        .copyright, .developer-credit {
+            font-size: clamp(0.875rem, 2vw, 1rem);
             opacity: 0.85;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.375rem;
         }
-        
+
+        @media (min-width: 768px) {
+            .copyright, .developer-credit {
+                justify-content: flex-start;
+            }
+        }
+
         .love-heart {
             color: #ff4757;
             animation: heartbeat 1.5s infinite;
-            font-size: 1.2rem;
+            font-size: clamp(0.875rem, 2vw, 1rem);
         }
-        
+
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.2); }
         }
-        
-        .developer-credit {
-            font-size: 1rem;
-            opacity: 0.85;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
+
         .developer-name {
-            font-weight: 700;
-            color: var(--white);
+            font-weight: 600;
+            color: white;
             text-decoration: none;
             transition: opacity 0.3s;
         }
-        
+
         .developer-name:hover {
             opacity: 0.8;
             text-decoration: underline;
         }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-link {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 1rem;
-            opacity: 0.85;
-            transition: opacity 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .footer-link:hover {
-            opacity: 1;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 2.2rem;
+
+        /* Mobile-specific optimizations */
+        @media (max-width: 767px) {
+            /* Improve touch targets */
+            button, .footer-link, .exam-status {
+                min-height: 44px;
+                min-width: 44px;
             }
-            
-            .subtitle {
-                font-size: 1.1rem;
+
+            /* Adjust table scroll */
+            .table-container {
+                margin-left: -1rem;
+                margin-right: -1rem;
+                width: calc(100% + 2rem);
+                border-radius: 0;
             }
-            
-            .summary {
-                grid-template-columns: repeat(2, 1fr);
+
+            /* Stack exam info vertically */
+            .exam-time-info > div:first-child {
+                margin-bottom: 1rem;
             }
-            
-            .footer-credits {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
+
+            /* Make controls full width */
+            .controls > *:not(.controls-header) {
+                grid-column: 1 / -1;
             }
         }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            header {
-                padding: 30px 0;
-                margin-bottom: 30px;
-            }
-            
-            h1 {
-                font-size: 1.9rem;
-            }
-            
-            .exam-time-info {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-            
+
+        /* Tablet optimizations */
+        @media (min-width: 768px) and (max-width: 1023px) {
             .controls {
-                padding: 20px;
+                grid-template-columns: 1fr 1fr;
             }
-            
-            .controls-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+
+            .reset-btn {
+                grid-column: 1 / -1;
             }
-            
-            .filter-input-container, .sort-select-container {
-                min-width: 100%;
+        }
+
+        /* Large screen optimizations */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1600px;
             }
-            
-            th, td {
-                padding: 15px 12px;
-                font-size: 0.95rem;
-            }
-            
-            .time-unit {
-                min-width: 60px;
-                padding: 10px 8px;
-            }
-            
-            .time-value {
-                font-size: 1.4rem;
-            }
-            
+
             .summary {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .summary-item {
-                padding: 25px 20px;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
+                grid-template-columns: repeat(4, 1fr);
             }
         }
-        
-        @media (max-width: 576px) {
-            h1 {
-                font-size: 1.6rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-            
-            .current-date-container {
-                padding: 10px 20px;
-                font-size: 1rem;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-            }
-            
-            .current-date-icon {
-                margin-right: 0;
-                margin-bottom: 5px;
-            }
-            
-            .exam-start-time {
-                padding: 10px 20px;
-                font-size: 0.95rem;
-            }
-            
-            th {
-                font-size: 0.9rem;
-                padding: 12px 10px;
-            }
-            
-            td {
-                padding: 12px 10px;
-                font-size: 0.9rem;
-            }
-            
-            .subject-name {
-                font-size: 1rem;
-            }
-            
-            .exam-date {
-                font-size: 1.1rem;
-            }
-            
-            .countdown-box {
-                gap: 8px;
-            }
-            
-            .time-unit {
-                min-width: 55px;
-                padding: 8px 6px;
-            }
-            
-            .time-value {
-                font-size: 1.3rem;
-            }
-            
-            .time-label {
-                font-size: 0.75rem;
-            }
-        }
-        
+
+        /* Print styles */
         @media print {
-            .controls, .footer, .exam-time-info, .summary {
-                display: none;
+            .controls, footer, .exam-time-info, .summary,
+            .filter-icon, .sort-icon, .reset-btn i,
+            .subject-code i, .exam-day i, .exam-status i {
+                display: none !important;
             }
-            
-            .exam-schedule {
+
+            .table-container {
                 box-shadow: none;
+                overflow: visible;
+            }
+
+            table {
+                min-width: auto;
+                width: 100%;
+            }
+
+            body {
+                background-color: white;
+                font-size: 12pt;
+            }
+
+            header {
+                background: white !important;
+                color: black !important;
+                padding: 1rem 0 !important;
+            }
+
+            h1 {
+                color: black !important;
+                font-size: 16pt !important;
             }
         }
-        
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: var(--white);
-            animation: spin 1s ease-in-out infinite;
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .love-heart {
+                animation: none;
+            }
         }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-color: #0000FF;
+                --text-primary: #000000;
+                --border-color: #000000;
+            }
+
+            .exam-start-time {
+                border: 2px solid #000000;
+            }
+
+            .time-unit {
+                border: 2px solid #000000;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+                color: #e8eaed;
+            }
+
+            .exam-time-info {
+                background-color: #2d2d2d;
+                border-left-color: #8ab4f8;
+            }
+
+            .exam-start-time {
+                background-color: #2d2d2d;
+                color: #8ab4f8;
+            }
+
+            .controls, .summary-item, .table-container {
+                background-color: #2d2d2d;
+                color: #e8eaed;
+            }
+
+            .subject-name, th {
+                color: #e8eaed;
+            }
+
+            .subject-code, .exam-day {
+                color: #9aa0a6;
+            }
+
+            .time-unit {
+                background-color: #3c4043;
+                border-color: #5f6368;
+            }
+
+            tr:hover {
+                background-color: #3c4043;
+            }
+
+            .time-value {
+                color: #8ab4f8;
+            }
+
+            .time-label {
+                color: #9aa0a6;
+            }
+
+            .filter-input, .sort-select {
+                background-color: #3c4043;
+                border-color: #5f6368;
+                color: #e8eaed;
+            }
+
+            .filter-input::placeholder {
+                color: #9aa0a6;
+            }
         }
     </style>
 </head>
@@ -741,7 +745,7 @@
             <h1>২০২৬ সালের মাধ্যমিক স্কুল সাটিফিকেট পরীক্ষার সময়সূচি</h1>
             <p class="subtitle">পরীক্ষার সময়সূচি এবং প্রতিটি পরীক্ষার জন্য বাস্তব সময় গণনা</p>
             <div class="current-date-container">
-                <i class="fas fa-clock current-date-icon"></i>
+                <i class="fas fa-clock"></i>
                 <span id="currentDateTime">বর্তমান তারিখ ও সময়: লোড হচ্ছে...</span>
             </div>
         </div>
@@ -784,7 +788,7 @@
             </button>
         </div>
         
-        <div class="exam-schedule">
+        <div class="table-container">
             <table id="examTable">
                 <thead>
                     <tr>
@@ -1030,12 +1034,12 @@
                 
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td class="subject-cell">
+                    <td>
                         <div class="subject-name">${exam.subject}</div>
                         <div class="subject-code"><i class="fas fa-hashtag"></i> কোড: ${exam.code}</div>
                     </td>
                     <td>${exam.code}</td>
-                    <td class="exam-date-cell">
+                    <td>
                         <div class="exam-date">${formatDateForDisplay(exam.date)}</div>
                         <div class="exam-day"><i class="far fa-calendar-alt"></i> ${exam.day}</div>
                     </td>
@@ -1137,4 +1141,4 @@
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
-  </html>
+</html>
